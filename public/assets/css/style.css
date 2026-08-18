@@ -1,0 +1,562 @@
+/* =========================================================
+   AZARED - Main Stylesheet
+   Theme: White + Blue, modern, clean, lightweight
+   ========================================================= */
+
+:root {
+  --azr-blue-900: #0b3d91;
+  --azr-blue-700: #1456c9;
+  --azr-blue-600: #1a63e0;
+  --azr-blue-500: #2f7bf0;
+  --azr-blue-100: #e8f0fe;
+  --azr-blue-50:  #f4f8ff;
+  --azr-white:    #ffffff;
+  --azr-gray-900: #1c2530;
+  --azr-gray-600: #5b6778;
+  --azr-gray-300: #dfe5ec;
+  --azr-gray-100: #f5f7fa;
+  --azr-green:    #1aa260;
+  --azr-red:      #d64545;
+  --azr-amber:    #e0a71b;
+
+  --azr-radius: 10px;
+  --azr-shadow: 0 2px 10px rgba(11, 61, 145, 0.06);
+  --azr-shadow-md: 0 6px 20px rgba(11, 61, 145, 0.10);
+  --azr-transition: 150ms ease;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--azr-gray-100);
+  color: var(--azr-gray-900);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+a { color: var(--azr-blue-600); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Brand ---------- */
+.azr-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--azr-blue-900);
+  letter-spacing: 0.5px;
+}
+.azr-brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--azr-blue-600), var(--azr-blue-900));
+  color: var(--azr-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+/* ---------- App shell ---------- */
+.azr-app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.azr-sidebar {
+  width: 250px;
+  background: var(--azr-white);
+  border-right: 1px solid var(--azr-gray-300);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 40;
+  transition: transform var(--azr-transition);
+}
+
+.azr-sidebar-header {
+  padding: 20px 18px;
+  border-bottom: 1px solid var(--azr-gray-300);
+}
+
+.azr-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 10px;
+}
+
+.azr-nav-group-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azr-gray-600);
+  margin: 16px 10px 6px;
+}
+
+.azr-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--azr-gray-900);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.azr-nav-link:hover { background: var(--azr-blue-50); text-decoration: none; }
+.azr-nav-link.active { background: var(--azr-blue-100); color: var(--azr-blue-900); font-weight: 600; }
+.azr-nav-icon { width: 18px; text-align: center; opacity: 0.85; }
+
+.azr-main {
+  margin-left: 250px;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.azr-topbar {
+  height: 62px;
+  background: var(--azr-white);
+  border-bottom: 1px solid var(--azr-gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.azr-topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.azr-avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--azr-blue-100);
+  color: var(--azr-blue-900);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.azr-content {
+  padding: 24px;
+  flex: 1;
+}
+
+.azr-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--azr-blue-900);
+  cursor: pointer;
+}
+
+/* ---------- Breadcrumb ---------- */
+.azr-breadcrumb {
+  font-size: 0.85rem;
+  color: var(--azr-gray-600);
+  margin-bottom: 18px;
+}
+.azr-breadcrumb a { color: var(--azr-gray-600); }
+.azr-breadcrumb .current { color: var(--azr-blue-900); font-weight: 600; }
+
+/* ---------- Cards ---------- */
+.azr-card {
+  background: var(--azr-white);
+  border: 1px solid var(--azr-gray-300);
+  border-radius: var(--azr-radius);
+  box-shadow: var(--azr-shadow);
+  padding: 20px;
+}
+
+.azr-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.azr-card-title { font-size: 1.05rem; font-weight: 700; color: var(--azr-blue-900); margin: 0; }
+
+/* ---------- Stat cards ---------- */
+.azr-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.azr-stat-card {
+  background: var(--azr-white);
+  border: 1px solid var(--azr-gray-300);
+  border-radius: var(--azr-radius);
+  padding: 18px;
+  box-shadow: var(--azr-shadow);
+}
+.azr-stat-label { font-size: 0.8rem; color: var(--azr-gray-600); margin-bottom: 6px; }
+.azr-stat-value { font-size: 1.5rem; font-weight: 800; color: var(--azr-blue-900); }
+.azr-stat-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--azr-blue-100); color: var(--azr-blue-700);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; margin-bottom: 10px;
+}
+
+/* ---------- Shortcuts ---------- */
+.azr-shortcuts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.azr-shortcut {
+  background: var(--azr-white);
+  border: 1px solid var(--azr-gray-300);
+  border-radius: var(--azr-radius);
+  padding: 18px;
+  text-align: center;
+  color: var(--azr-gray-900);
+  transition: box-shadow var(--azr-transition), transform var(--azr-transition);
+}
+.azr-shortcut:hover { box-shadow: var(--azr-shadow-md); transform: translateY(-2px); text-decoration: none; }
+.azr-shortcut-icon { font-size: 1.4rem; color: var(--azr-blue-600); margin-bottom: 8px; }
+
+/* ---------- Buttons ---------- */
+.azr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--azr-transition), border-color var(--azr-transition);
+}
+.azr-btn-primary { background: var(--azr-blue-600); color: var(--azr-white); }
+.azr-btn-primary:hover { background: var(--azr-blue-700); text-decoration: none; }
+.azr-btn-outline { background: var(--azr-white); border-color: var(--azr-gray-300); color: var(--azr-gray-900); }
+.azr-btn-outline:hover { border-color: var(--azr-blue-600); color: var(--azr-blue-600); text-decoration: none; }
+.azr-btn-danger { background: var(--azr-red); color: var(--azr-white); }
+.azr-btn-sm { padding: 6px 10px; font-size: 0.78rem; }
+
+/* ---------- Forms ---------- */
+.azr-form-group { margin-bottom: 16px; }
+.azr-label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 6px; color: var(--azr-gray-900); }
+.azr-input, .azr-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--azr-gray-300);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: var(--azr-white);
+  color: var(--azr-gray-900);
+}
+.azr-input:focus, .azr-select:focus {
+  outline: none;
+  border-color: var(--azr-blue-500);
+  box-shadow: 0 0 0 3px rgba(47, 123, 240, 0.15);
+}
+.azr-error-text { color: var(--azr-red); font-size: 0.78rem; margin-top: 4px; }
+.azr-help-text { color: var(--azr-gray-600); font-size: 0.78rem; margin-top: 4px; }
+
+/* ---------- Tables ---------- */
+.azr-table-wrap { overflow-x: auto; }
+.azr-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.azr-table th {
+  text-align: left;
+  padding: 12px;
+  background: var(--azr-blue-50);
+  color: var(--azr-blue-900);
+  font-weight: 700;
+  border-bottom: 1px solid var(--azr-gray-300);
+  white-space: nowrap;
+}
+.azr-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--azr-gray-300);
+  vertical-align: middle;
+}
+.azr-table tr:hover td { background: var(--azr-blue-50); }
+
+/* ---------- Badges ---------- */
+.azr-badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.74rem; font-weight: 700; }
+.azr-badge-active { background: #e6f7ee; color: var(--azr-green); }
+.azr-badge-inactive { background: #fdeaea; color: var(--azr-red); }
+.azr-badge-suspended { background: #fff6e0; color: var(--azr-amber); }
+
+/* ---------- Alerts ---------- */
+.azr-alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 0.88rem; }
+.azr-alert-error { background: #fdeaea; color: #a12727; border: 1px solid #f4c1c1; }
+.azr-alert-success { background: #e6f7ee; color: #146c43; border: 1px solid #b7e4cd; }
+.azr-alert-info { background: var(--azr-blue-50); color: var(--azr-blue-900); border: 1px solid var(--azr-blue-100); }
+
+/* ---------- Modal ---------- */
+.azr-modal-backdrop {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(11, 61, 145, 0.35);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.azr-modal-backdrop.open { display: flex; }
+.azr-modal {
+  background: var(--azr-white);
+  border-radius: var(--azr-radius);
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 22px;
+  box-shadow: var(--azr-shadow-md);
+  box-sizing: border-box;
+}
+.azr-modal-title { font-weight: 700; color: var(--azr-blue-900); margin: 0 0 12px; }
+.azr-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+
+/* ---------- Login page ---------- */
+.azr-auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--azr-blue-50), var(--azr-white));
+  padding: 20px;
+}
+.azr-auth-card {
+  background: var(--azr-white);
+  border-radius: 14px;
+  box-shadow: var(--azr-shadow-md);
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 28px;
+}
+.azr-auth-title { text-align: center; margin: 10px 0 4px; color: var(--azr-blue-900); }
+.azr-auth-subtitle { text-align: center; color: var(--azr-gray-600); margin-bottom: 24px; font-size: 0.88rem; }
+
+/* ---------- Sidebar mobile backdrop ---------- */
+.azr-sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 61, 145, 0.25);
+  z-index: 35;
+}
+.azr-sidebar-backdrop.open { display: block; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .azr-stats-grid, .azr-shortcuts { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .azr-sidebar { transform: translateX(-100%); }
+  .azr-sidebar.open { transform: translateX(0); }
+  .azr-main { margin-left: 0; }
+  .azr-menu-toggle { display: inline-flex; }
+}
+
+@media (max-width: 560px) {
+  .azr-stats-grid, .azr-shortcuts { grid-template-columns: 1fr; }
+  .azr-content { padding: 16px; }
+  .azr-topbar { padding: 0 14px; }
+}
+
+/* =========================================================
+   AZARED Phase 2 - POS / Produk / Stok / Pembelian / Relasi
+   ========================================================= */
+
+/* ---------- Extra badges (status pembelian/penjualan/stok) ---------- */
+.azr-badge-info { background: var(--azr-blue-100); color: var(--azr-blue-700); }
+.azr-badge-warning { background: #fff6e0; color: var(--azr-amber); }
+.azr-badge-danger { background: #fdeaea; color: var(--azr-red); }
+.azr-badge-neutral { background: var(--azr-gray-100); color: var(--azr-gray-600); }
+
+/* ---------- Filter bar ---------- */
+.azr-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end;
+  margin-bottom: 16px; padding: 14px; background: var(--azr-white);
+  border-radius: var(--azr-radius); box-shadow: var(--azr-shadow);
+}
+.azr-filter-bar .azr-form-group { margin: 0; min-width: 160px; }
+.azr-filter-bar .azr-btn { height: 38px; }
+
+/* ---------- Buttons (extra) ---------- */
+.azr-btn-success { background: var(--azr-green); color: #fff; border: 1px solid var(--azr-green); }
+.azr-btn-success:hover { opacity: 0.92; }
+.azr-btn-link { background: none; border: none; color: var(--azr-blue-600); cursor: pointer; padding: 0; font-size: 0.85rem; }
+.azr-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------- Checkbox / textarea ---------- */
+.azr-checkbox-row { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; }
+.azr-textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--azr-gray-300); border-radius: 8px;
+  font-family: inherit; font-size: 0.9rem; resize: vertical; min-height: 70px; }
+.azr-textarea:focus { outline: none; border-color: var(--azr-blue-500); box-shadow: 0 0 0 3px var(--azr-blue-100); }
+
+/* ---------- Pagination ---------- */
+.azr-pagination { display: flex; gap: 6px; justify-content: flex-end; padding: 14px 0 0; flex-wrap: wrap; }
+.azr-pagination a, .azr-pagination span {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 34px; height: 34px; padding: 0 8px; border-radius: 8px;
+  border: 1px solid var(--azr-gray-300); color: var(--azr-gray-900); font-size: 0.84rem;
+}
+.azr-pagination a:hover { background: var(--azr-blue-50); text-decoration: none; }
+.azr-pagination .active { background: var(--azr-blue-600); border-color: var(--azr-blue-600); color: #fff; font-weight: 700; }
+.azr-pagination .disabled { opacity: 0.4; pointer-events: none; }
+
+/* ---------- Tabs ---------- */
+.azr-tabs { display: flex; gap: 4px; border-bottom: 2px solid var(--azr-gray-300); margin-bottom: 18px; flex-wrap: wrap; }
+.azr-tab {
+  padding: 10px 16px; font-size: 0.86rem; font-weight: 600; color: var(--azr-gray-600);
+  border-bottom: 2px solid transparent; margin-bottom: -2px; cursor: pointer;
+}
+.azr-tab.active, .azr-tab:hover { color: var(--azr-blue-700); border-bottom-color: var(--azr-blue-600); text-decoration: none; }
+
+/* ---------- Stat card variants ---------- */
+.azr-stat-card.azr-stat-warn .azr-stat-value { color: var(--azr-amber); }
+.azr-stat-card.azr-stat-danger .azr-stat-value { color: var(--azr-red); }
+.azr-stat-card.azr-stat-good .azr-stat-value { color: var(--azr-green); }
+
+/* =========================================================
+   POS / Kasir layout
+   ========================================================= */
+.azr-pos {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 18px;
+  align-items: start;
+  height: calc(100vh - 118px);
+}
+.azr-pos-left, .azr-pos-right {
+  background: var(--azr-white);
+  border-radius: var(--azr-radius);
+  box-shadow: var(--azr-shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.azr-pos-search {
+  display: flex; gap: 8px; padding: 14px; border-bottom: 1px solid var(--azr-gray-300);
+}
+.azr-pos-search .azr-input { flex: 1; }
+.azr-pos-categories {
+  display: flex; gap: 8px; padding: 10px 14px; overflow-x: auto; border-bottom: 1px solid var(--azr-gray-300);
+  white-space: nowrap;
+}
+.azr-pos-cat-chip {
+  padding: 6px 14px; border-radius: 999px; border: 1px solid var(--azr-gray-300);
+  font-size: 0.8rem; font-weight: 600; color: var(--azr-gray-600); cursor: pointer; flex: 0 0 auto;
+}
+.azr-pos-cat-chip.active { background: var(--azr-blue-600); border-color: var(--azr-blue-600); color: #fff; }
+
+.azr-pos-products {
+  flex: 1; overflow-y: auto; padding: 14px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; align-content: start;
+}
+.azr-pos-product-card {
+  border: 1px solid var(--azr-gray-300); border-radius: 10px; padding: 10px; cursor: pointer;
+  transition: border-color var(--azr-transition), box-shadow var(--azr-transition);
+  display: flex; flex-direction: column; gap: 4px; background: var(--azr-white);
+}
+.azr-pos-product-card:hover { border-color: var(--azr-blue-500); box-shadow: var(--azr-shadow-md); }
+.azr-pos-product-card.out-of-stock { opacity: 0.45; cursor: not-allowed; }
+.azr-pos-product-thumb {
+  width: 100%; aspect-ratio: 1/1; border-radius: 8px; background: var(--azr-blue-50);
+  display: flex; align-items: center; justify-content: center; overflow: hidden; color: var(--azr-blue-300); font-size: 1.6rem;
+}
+.azr-pos-product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.azr-pos-product-name { font-size: 0.8rem; font-weight: 600; line-height: 1.25; min-height: 2.4em; }
+.azr-pos-product-price { font-size: 0.82rem; font-weight: 700; color: var(--azr-blue-700); }
+.azr-pos-product-stock { font-size: 0.7rem; color: var(--azr-gray-600); }
+
+.azr-pos-right-header { padding: 14px; border-bottom: 1px solid var(--azr-gray-300); display: flex; gap: 8px; align-items: center; }
+.azr-pos-right-header .azr-select { flex: 1; }
+
+.azr-cart { flex: 1; overflow-y: auto; padding: 0 14px; }
+.azr-cart-item {
+  display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--azr-gray-100); align-items: center;
+}
+.azr-cart-item-info { flex: 1; min-width: 0; }
+.azr-cart-item-name { font-size: 0.84rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.azr-cart-item-price { font-size: 0.76rem; color: var(--azr-gray-600); }
+.azr-cart-item-qty { display: flex; align-items: center; gap: 6px; }
+.azr-qty-btn {
+  width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--azr-gray-300); background: var(--azr-white);
+  cursor: pointer; font-weight: 700; color: var(--azr-blue-700); line-height: 1;
+}
+.azr-qty-input { width: 42px; text-align: center; border: 1px solid var(--azr-gray-300); border-radius: 6px; padding: 3px; font-size: 0.82rem; }
+.azr-cart-item-subtotal { font-size: 0.84rem; font-weight: 700; min-width: 76px; text-align: right; }
+.azr-cart-item-remove { color: var(--azr-red); cursor: pointer; font-size: 1rem; padding: 0 2px; background: none; border: none; }
+.azr-cart-empty { padding: 40px 14px; text-align: center; color: var(--azr-gray-600); font-size: 0.86rem; }
+
+.azr-pos-summary { padding: 14px; border-top: 1px solid var(--azr-gray-300); background: var(--azr-blue-50); }
+.azr-summary-row { display: flex; justify-content: space-between; font-size: 0.84rem; padding: 3px 0; }
+.azr-summary-row.total { font-size: 1.05rem; font-weight: 800; color: var(--azr-blue-900); padding-top: 8px; border-top: 1px dashed var(--azr-blue-100); margin-top: 6px; }
+.azr-pos-actions { display: flex; gap: 8px; padding: 14px; }
+.azr-pos-actions .azr-btn { flex: 1; }
+
+/* Payment modal */
+.azr-pay-method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.azr-pay-method {
+  border: 1px solid var(--azr-gray-300); border-radius: 8px; padding: 10px 6px; text-align: center;
+  font-size: 0.76rem; font-weight: 600; cursor: pointer; color: var(--azr-gray-600);
+}
+.azr-pay-method.active { border-color: var(--azr-blue-600); background: var(--azr-blue-50); color: var(--azr-blue-700); }
+.azr-pay-split-row { display: flex; gap: 8px; align-items: center; padding: 6px 0; font-size: 0.84rem; }
+.azr-pay-split-row .azr-input { flex: 1; }
+
+/* ---------- Receipt / struk ---------- */
+.azr-receipt-wrap { display: flex; justify-content: center; padding: 20px; }
+.azr-receipt {
+  width: 320px; background: #fff; padding: 18px; font-family: 'Courier New', monospace; font-size: 12px; color: #111;
+  box-shadow: var(--azr-shadow-md); border-radius: 6px;
+}
+.azr-receipt.size-80mm { width: 320px; }
+.azr-receipt.size-58mm { width: 230px; font-size: 11px; }
+.azr-receipt-center { text-align: center; }
+.azr-receipt-brand { font-weight: 800; font-size: 15px; letter-spacing: 1px; }
+.azr-receipt-hr { border: none; border-top: 1px dashed #333; margin: 8px 0; }
+.azr-receipt-row { display: flex; justify-content: space-between; gap: 6px; }
+.azr-receipt-item-name { font-weight: 700; }
+.azr-receipt-actions { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+
+@media print {
+  .azr-sidebar, .azr-topbar, .azr-receipt-actions, .azr-menu-toggle, .azr-no-print { display: none !important; }
+  .azr-main { margin-left: 0 !important; }
+  .azr-content { padding: 0 !important; }
+  .azr-receipt-wrap { padding: 0; }
+  .azr-receipt { box-shadow: none; width: 100%; }
+  body { background: #fff; }
+}
+.azr-invoice-a4 { max-width: 780px; margin: 0 auto; background: #fff; padding: 32px; box-shadow: var(--azr-shadow-md); border-radius: 8px; }
+.azr-invoice-a4 table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+.azr-invoice-a4 th, .azr-invoice-a4 td { padding: 8px; border-bottom: 1px solid var(--azr-gray-300); font-size: 0.86rem; text-align: left; }
+.azr-invoice-totals { margin-left: auto; width: 280px; }
+
+/* ---------- Product image thumb in tables ---------- */
+.azr-table-thumb { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; background: var(--azr-blue-50); }
+
+/* ---------- Low stock list ---------- */
+.azr-lowstock-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--azr-gray-100); font-size: 0.86rem; }
+.azr-lowstock-item:last-child { border-bottom: none; }
+
+@media (max-width: 1000px) {
+  .azr-pos { grid-template-columns: 1fr; height: auto; }
+  .azr-pos-left, .azr-pos-right { height: auto; max-height: 70vh; }
+}

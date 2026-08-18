@@ -1,0 +1,86 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.9.0",
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    { "src": "/assets/(.*)", "dest": "/public/assets/$1" },
+
+    { "src": "^/$", "dest": "/api/index.php" },
+    { "src": "^/login\\.php$", "dest": "/api/login.php" },
+    { "src": "^/logout\\.php$", "dest": "/api/logout.php" },
+    { "src": "^/audit$", "dest": "/api/audit.php" },
+    { "src": "^/403\\.php$", "dest": "/api/403.php" },
+    { "src": "^/404\\.php$", "dest": "/api/404.php" },
+    { "src": "^/419\\.php$", "dest": "/api/419.php" },
+    { "src": "^/429\\.php$", "dest": "/api/429.php" },
+    { "src": "^/500\\.php$", "dest": "/api/500.php" },
+
+    { "src": "^/dashboard$", "dest": "/api/dashboard.php" },
+    { "src": "^/dashboard\\.php$", "dest": "/api/dashboard.php" },
+    { "src": "^/pos$", "dest": "/api/pos/index.php" },
+    { "src": "^/sales$", "dest": "/api/sales/index.php" },
+    { "src": "^/purchases$", "dest": "/api/purchases/index.php" },
+    { "src": "^/products$", "dest": "/api/products/index.php" },
+    { "src": "^/inventory$", "dest": "/api/inventory/index.php" },
+    { "src": "^/customers$", "dest": "/api/customers/index.php" },
+    { "src": "^/suppliers$", "dest": "/api/suppliers/index.php" },
+    { "src": "^/users$", "dest": "/api/users/index.php" },
+    { "src": "^/reports$", "dest": "/api/reports/index.php" },
+    { "src": "^/settings$", "dest": "/api/settings/index.php" },
+    { "src": "^/roles$", "dest": "/api/roles/index.php" },
+    { "src": "^/permissions$", "dest": "/api/permissions/index.php" },
+
+    { "src": "^/users/index\\.php$", "dest": "/api/users/index.php" },
+    { "src": "^/users/create\\.php$", "dest": "/api/users/create.php" },
+    { "src": "^/users/store\\.php$", "dest": "/api/users/store.php" },
+    { "src": "^/users/toggle-status\\.php$", "dest": "/api/users/toggle-status.php" },
+    { "src": "^/users/reset-password\\.php$", "dest": "/api/users/reset-password.php" },
+    { "src": "^/users/edit\\.php$", "dest": "/api/users/edit.php" },
+    { "src": "^/users/update\\.php$", "dest": "/api/users/update.php" },
+
+    { "src": "^/categories/([a-z-]+)\\.php$", "dest": "/api/categories/$1.php" },
+    { "src": "^/units/([a-z-]+)\\.php$", "dest": "/api/units/$1.php" },
+    { "src": "^/products/([a-z-]+)\\.php$", "dest": "/api/products/$1.php" },
+    { "src": "^/inventory/([a-z-]+)\\.php$", "dest": "/api/inventory/$1.php" },
+    { "src": "^/pos/([a-z-]+)\\.php$", "dest": "/api/pos/$1.php" },
+    { "src": "^/sales/([a-z-]+)\\.php$", "dest": "/api/sales/$1.php" },
+    { "src": "^/purchases/([a-z-]+)\\.php$", "dest": "/api/purchases/$1.php" },
+    { "src": "^/customers/([a-z-]+)\\.php$", "dest": "/api/customers/$1.php" },
+    { "src": "^/suppliers/([a-z-]+)\\.php$", "dest": "/api/suppliers/$1.php" },
+
+    { "src": "^/roles/([a-z-]+)\\.php$", "dest": "/api/roles/$1.php" },
+    { "src": "^/stores/([a-z-]+)\\.php$", "dest": "/api/stores/$1.php" },
+    { "src": "^/settings/([a-z-]+)\\.php$", "dest": "/api/settings/$1.php" },
+
+    { "src": "^/finance$", "dest": "/api/finance/index.php" },
+    { "src": "^/finance/profit-loss$", "dest": "/api/finance/profit-loss.php" },
+    { "src": "^/finance/cash-flow$", "dest": "/api/finance/cash-flow.php" },
+    { "src": "^/finance/([a-z-]+)\\.php$", "dest": "/api/finance/$1.php" },
+
+    { "src": "^/expenses/([a-z-]+)\\.php$", "dest": "/api/expenses/$1.php" },
+    { "src": "^/expense-categories/([a-z-]+)\\.php$", "dest": "/api/expense-categories/$1.php" },
+
+    { "src": "^/reports/sales$", "dest": "/api/reports/sales.php" },
+    { "src": "^/reports/purchases$", "dest": "/api/reports/purchases.php" },
+    { "src": "^/reports/inventory$", "dest": "/api/reports/inventory.php" },
+    { "src": "^/reports/hpp$", "dest": "/api/reports/hpp.php" },
+    { "src": "^/reports/tax$", "dest": "/api/reports/tax.php" },
+    { "src": "^/reports/([a-z-]+)\\.php$", "dest": "/api/reports/$1.php" },
+
+    { "src": "^/tax$", "dest": "/api/tax/index.php" },
+    { "src": "^/tax/settings$", "dest": "/api/tax/settings.php" },
+    { "src": "^/tax/output$", "dest": "/api/tax/output.php" },
+    { "src": "^/tax/input$", "dest": "/api/tax/input.php" },
+    { "src": "^/tax/periods$", "dest": "/api/tax/periods.php" },
+    { "src": "^/tax/([a-z-]+)\\.php$", "dest": "/api/tax/$1.php" },
+
+    { "src": "^/api/(.*)", "dest": "/api/$1" },
+
+    { "src": "^/(.*)", "dest": "/api/404.php" }
+  ]
+}

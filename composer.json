@@ -1,0 +1,12 @@
+{
+    "name": "azared/pos",
+    "description": "AZARED - Aplikasi Kasir/POS",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
